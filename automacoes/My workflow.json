@@ -1,0 +1,132 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "capturar-lead",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "06f597ea-cb87-4a55-8730-ef1403bb5c02",
+      "name": "Webhook",
+      "webhookId": "b6109395-2963-4606-ac0f-cdb6ea6d751f"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "13-NXLxXy5Z5ZxW-ewB3zYPI0GqgtwbwxFzgutjDtlG8",
+          "mode": "list",
+          "cachedResultName": "Base_Leads_CRM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13-NXLxXy5Z5ZxW-ewB3zYPI0GqgtwbwxFzgutjDtlG8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13-NXLxXy5Z5ZxW-ewB3zYPI0GqgtwbwxFzgutjDtlG8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "nome_empresa": "={{ $json.body.nome_empresa }}",
+            "estado": "={{ $json.body.estado }}",
+            "setor": "={{ $json.body.setor }}",
+            "origem_campanha": "={{ $json.body.origem_campanha }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nome_empresa",
+              "displayName": "nome_empresa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "setor",
+              "displayName": "setor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "origem_campanha",
+              "displayName": "origem_campanha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        0
+      ],
+      "id": "43af28e4-84c4-4a9b-83c0-fb5d979ef6c5",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ubAwApqxg0KLZkqt",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "8305b7d1-9bf3-476e-b3e8-28f75703b3e2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2858df7936b22de595aa2edad8e3fff20d432218ff14299cafa6b0f9cabcd0f9"
+  },
+  "nodeGroups": [],
+  "id": "LwXbYcGE3Y26HQPN",
+  "tags": []
+}
